@@ -1,0 +1,10 @@
+.video {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    &__source {
+        width: 80vw;
+    }
+}

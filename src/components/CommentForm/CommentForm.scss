@@ -1,0 +1,20 @@
+.comment {
+    &__section {
+        display: flex;
+        // flex-direction: column;
+        justify-content: center;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__input {
+        resize: none;
+    }
+    &__label {
+        display: flex;
+        flex-direction: column;
+    }
+}
