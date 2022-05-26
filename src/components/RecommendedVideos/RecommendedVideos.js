@@ -3,16 +3,16 @@ import RecommendedVideo from "../NextVideo/RecommendedVideo"
 
 function RecommendedVideos(props) {
 
-
     return (
         <>
-        {props.nextVideos.map((videos, index) => 
-            props.currentVideo !== videos['title'] &&
+        {props.nextVideos.map(videos => 
+            props.currentVideoTitle !== videos['title'] &&
                 <RecommendedVideo 
-                key={index}
+                key={videos['id']}
                 src={videos['image']} 
                 title={videos['title']} 
-                channel={videos['channel']} 
+                channel={videos['channel']}
+                onClick={props.onClick}
                 />
         )}
         </>

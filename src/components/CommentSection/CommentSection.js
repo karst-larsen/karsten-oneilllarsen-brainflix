@@ -7,13 +7,13 @@ function CommentSection(props) {
 
     return (
         <>
-        {props.videoData[0].comments.map((comments, index) => 
+        {props.commentData.map((comments, index) => 
             <Comment 
             key={index}
             name={comments.name} 
             comment={comments.comment} 
-            timestamp={comments.timestamp} />
-
+            timestamp={comments.timestamp} 
+            />
         )}
         </>
     )

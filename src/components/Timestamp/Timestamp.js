@@ -1,5 +1,4 @@
 function Timestamp(props) {
-    console.log(props.epoch)
     let epochMonth = 2682000;
     let epochDay = 86400;
     let epochHour = epochDay / 24;

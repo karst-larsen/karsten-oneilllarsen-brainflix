@@ -6,7 +6,7 @@ import Likes from '../Likes/Likes'
 import VideoDescription from '../VideoDescription/VideoDescription'
 
 function VideoDetails(props) {
-    const { title, channel, timestamp, views, likes, description } = props.videoData[0]
+    const { title, channel, timestamp, views, likes, description } = props.videoData
     return (
         <>
         <div className="video__title">{title}</div>
