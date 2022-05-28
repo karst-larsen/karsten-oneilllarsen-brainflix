@@ -1,10 +1,10 @@
 import viewsIcon from '../../assets/images/Icons/views.svg'
 
-function ChannelViews(props) {
+function ChannelViews({ views }) {
     return (
         <>
         <img src={viewsIcon} alt="views icon" />
-        <span>{props.views}</span>
+        <span>{views}</span>
         </>
     )
 }

@@ -1,13 +1,11 @@
 import Comment from "../Comment/Comment"
+import './CommentSection.scss'
 
-function CommentSection(props) {
-    // const {timestamp} = props.videoData[0];
-    // const {name, comment, timestamp} = props.videoData[0].comments[0];
-
+function CommentSection({ commentData }) {
 
     return (
         <>
-        {props.commentData.map((comments, index) => 
+        {commentData.map((comments, index) => 
             <Comment 
             key={index}
             name={comments.name} 

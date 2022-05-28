@@ -1,6 +1,6 @@
-function VideoDescription(props) {
+function VideoDescription({ content }) {
     return (
-        <span className="description__content">{props.content}</span>
+        <span className="description__content">{content}</span>
     )
 }
 

@@ -1,10 +1,20 @@
+.video-section {
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center; 
+}
 .video {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: black;
     
     &__source {
-        width: 80vw;
+        width: 100vw;
+        height: 55vw;
+        object-fit: contain;
     }
+
 }

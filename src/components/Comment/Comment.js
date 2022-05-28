@@ -1,14 +1,20 @@
+import "./Comment.scss"
 import Timestamp from "../Timestamp/Timestamp"
+import AvatarBox from "../AvatarBox/AvatarBox"
+import AnonymousBox from "../AvatarBox/AnonymousBox/AnonymousBox"
 
-function Comment(props) {
+function Comment({ name, timestamp, comment }) {
     return (
         <div className="comment__card">
             {/* <PlaceHolderAvater /> */}
-            <div className="comment_banner">
-                <span className="comment__name">{props.name}</span>
-                <span><Timestamp epoch={props.timestamp} /></span>
+            <div className="comment__icon-box"><AnonymousBox /></div>
+            <div>
+                <div className="comment__banner">
+                    <span className="comment__name">{name}</span>
+                    <span className="comment__timestamp"><Timestamp epoch={timestamp} /></span>
+                </div>
+                <span className="comment__comment-content">{comment}</span>
             </div>
-            <span className="comment__comment-content">{props.comment}</span>
         </div>
     )
 }

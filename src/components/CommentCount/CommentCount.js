@@ -1,6 +1,8 @@
-function CommentCount(props) {
+import './CommentCount.scss'
+
+function CommentCount({ commentData }) {
     return (
-        <span>{props.commentData.length} Comments</span>
+        <span className="comment__count">{commentData.length} Comments</span>
     )
 }
 

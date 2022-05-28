@@ -1,0 +1,26 @@
+@use './partials/fonts' as *;
+@use './partials/colours' as *;
+@use './partials/fontsizes' as *;
+@use './partials/breakpoints' as *;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Avenir", sans-serif;
+}
+
+.button {
+    font-weight: 700;
+    width: 90%;
+    height: 2.5rem;
+    border-radius: .25rem;
+    border: 0rem;
+    background-color: $BrainFlix-Blue;
+    color: $White;
+    margin-top: 1rem;
+
+    &:hover {
+        background-color: $BrainFlix-DarkBlue;
+    }
+}

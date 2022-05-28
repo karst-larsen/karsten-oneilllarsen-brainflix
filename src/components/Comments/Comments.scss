@@ -1,0 +1,102 @@
+@use '../../styles/partials/fontsizes' as *;
+@use '../../styles/partials/colours' as *;
+
+.comment {
+    &__section {
+        display: flex;
+        justify-content: center;
+        border-bottom: 1px solid $Mercury;
+        padding-bottom: 1rem;
+        width: 90%;
+        margin: 0 auto;
+
+        .user-logo {
+            width: 35px;
+            height: 35px;
+            margin-top: 1rem;
+        }
+    }
+
+    &__anonymous-box {
+        background-color: $Mercury;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+    }
+
+    &__icon-box {
+        display: flex;
+        justify-content: center;
+        width: 10rem;
+
+        .user-logo {
+            background-image: grey;
+            height: 35px;
+            width: 35px;
+        }
+    }
+
+    &__label {
+        @include mobile-labels-buttons;
+        display: flex;
+        flex-direction: column;
+        color: $Silver;
+        text-transform: uppercase;
+    }
+
+    &__input {
+        background-color: $Alabaster;
+        padding: 0.5rem;
+        width: 90%;
+        align-self: flex-end;
+        margin-right: 1rem;
+        resize: none;
+
+    }
+
+    &__banner {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.5rem;
+    };
+    &__card {
+        // padding: 1rem;
+        display: flex;
+        font-size: .8125rem;
+        border-bottom: 1px solid $Mercury;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    &__name {
+        @include mobile-labels-buttons;
+        font-weight: bold;
+        color: black;
+    }
+    
+    &__count {
+        @include mobile-body-copy;
+        font-weight: bold;
+        padding-bottom: 1rem;
+        padding-left: 1rem;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    &__avatar {
+        display: flex;
+        flex-direction: column;
+        align-items:center;
+        width: 20%;
+        padding: 0 1rem;
+    }
+
+    &__timestamp {
+        color: $Silver;
+    }
+
+}

@@ -1,9 +1,16 @@
+@use '../../styles/partials/fontsizes' as *;
+@use '../../styles/partials/colours' as *;
+
 .video {
     &__details {
         display: flex;
         flex-direction: row;
-        width: 50%;
         justify-content: space-between;
+        padding: 1rem;
+        color: $Silver;
+        width: 90%;
+        border-top: 1px solid $Silver;
+        border-bottom: 1px solid $Silver;
     }
 
     &__left-details, &__right-details {
@@ -13,10 +20,45 @@
         img {
             width: 1.5rem;
         }
+
+        .timestamp {
+            @include mobile-body-copy;
+        }
     }
 
     &__right-details {
-        flex-direction: row;
+        flex-direction: column;
         align-items: center;
+    }
+
+    &__title {
+        @include mobile-page-header;
+        font-weight: bold;
+        padding: 1rem;
+    }
+
+    &__author {
+        @include mobile-subheader;
+        color: black;
+        font-weight: bold;
+    }
+
+    &__description {
+        @include mobile-body-copy;
+        padding: 1rem;
+
+        &__content {
+            @include mobile-body-copy;
+        }
+    }
+
+}
+
+.likes, .views {
+    &__count {
+        @include mobile-body-copy;
+    }
+    &__icon {
+        max-width: 1.25rem;
     }
 }

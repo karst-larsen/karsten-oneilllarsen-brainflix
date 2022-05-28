@@ -1,0 +1,20 @@
+@use '../../styles/partials/fontsizes' as *;
+@use '../../styles/partials/colours' as *;
+
+.comment {
+    &__section {
+        display: flex;
+    }
+
+    &__label {
+        @include mobile-labels-buttons;
+        color: $Silver;
+        text-transform: uppercase;
+        padding-left: 0.5rem;
+    }
+
+    &__input {
+        background-color: $Alabaster;
+        padding: 0.5rem;
+    }
+}

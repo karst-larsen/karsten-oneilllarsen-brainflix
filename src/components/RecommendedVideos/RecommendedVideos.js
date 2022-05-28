@@ -1,20 +1,23 @@
-// import NextVideo from "../NextVideo/NextVideo"
+import "./RecommendedVideos.scss"
 import RecommendedVideo from "../NextVideo/RecommendedVideo"
 
-function RecommendedVideos(props) {
+function RecommendedVideos({ nextVideos, onClick, currentVideoTitle }) {
 
     return (
         <>
-        {props.nextVideos.map(videos => 
-            props.currentVideoTitle !== videos['title'] &&
-                <RecommendedVideo 
-                key={videos['id']}
-                src={videos['image']} 
-                title={videos['title']} 
-                channel={videos['channel']}
-                onClick={props.onClick}
-                />
-        )}
+            <h2 className="next-videos__header">Next Videos</h2>
+            <div className="next-videos">
+            {nextVideos.map(videos => 
+                currentVideoTitle !== videos['title'] &&
+                    <RecommendedVideo 
+                    key={videos.id}
+                    src={videos.image} 
+                    title={videos.title} 
+                    channel={videos.channel}
+                    onClick={onClick}
+                    />
+            )}
+            </div>
         </>
     )
 }

@@ -1,9 +1,9 @@
 import './MainVideo.scss'
 
-function MainVideo(props) {
+function MainVideo({ src }) {
     return (
         <div className="video">
-            <video controls poster={props.src} className="video__source" >
+            <video controls poster={src} className="video__source" >
             </video>
         </div>
     )

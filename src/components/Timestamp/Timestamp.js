@@ -1,13 +1,13 @@
-function Timestamp(props) {
+function Timestamp({ epoch }) {
     let epochMonth = 2682000;
     let epochDay = 86400;
     let epochHour = epochDay / 24;
     let epochMinute = epochHour / 60;
 
     let currentTime = Date.now() / 1000;
-    let epochComparisonTime = Math.ceil(currentTime - (props.epoch / 1000));
+    let epochComparisonTime = Math.ceil(currentTime - (epoch / 1000));
 
-    let date = new Date(props.epoch);
+    let date = new Date(epoch);
 
     if (epochComparisonTime < 0) {
         return `You're posting from the future? Inconceivable!`
