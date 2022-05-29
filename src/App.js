@@ -3,7 +3,7 @@ import MainVideo from './components/MainVideo/MainVideo';
 import videoData from './data/video-details.json'
 import nextVideos from './data/videos.json'
 import VideoDetails from './components/VideoDetails/VideoDetails';
-import RecommendedVideos from './components/RecommendedVideos/RecommendedVideos';
+import NextVideos from './components/NextVideos/NextVideos';
 import React from 'react';
 import './styles/global.scss';
 import Comments from './components/Comments/Comments';
@@ -11,12 +11,14 @@ import Comments from './components/Comments/Comments';
 
 
 class App extends React.Component {
+  //Initializing state with video JSON files and currentVideo being displayed to page
   state = {
     videoData,
     nextVideos,
     currentVideo: videoData[0]
   }
 
+  //On click, find the index of the item in the videoData array and use that index to set currentVideo
   handleClick = (title) => {
     this.state.videoData.forEach(video => {
       if (video.title === title) {
@@ -47,7 +49,7 @@ class App extends React.Component {
               </div>
             </section>
             <section className="next-section">
-              <RecommendedVideos 
+              <NextVideos 
               currentVideo={currentVideo}
               currentVideoTitle={title}
               nextVideos={nextVideos} 

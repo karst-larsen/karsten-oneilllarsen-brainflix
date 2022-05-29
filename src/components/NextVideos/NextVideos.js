@@ -1,7 +1,7 @@
-import "./RecommendedVideos.scss"
+import "./NextVideos.scss"
 import RecommendedVideo from "../NextVideo/RecommendedVideo"
 
-function RecommendedVideos({ nextVideos, onClick, currentVideoTitle }) {
+function NextVideos({ nextVideos, onClick, currentVideoTitle }) {
 
     return (
         <>
@@ -22,4 +22,4 @@ function RecommendedVideos({ nextVideos, onClick, currentVideoTitle }) {
     )
 }
 
-export default RecommendedVideos
+export default NextVideos

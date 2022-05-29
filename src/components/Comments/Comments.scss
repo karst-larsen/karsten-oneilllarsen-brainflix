@@ -15,6 +15,7 @@
             width: 35px;
             height: 35px;
             margin-top: 1rem;
+            background-color: $Mercury;
 
             @include tablet {
                 margin-top: 1.375rem;
@@ -44,6 +45,7 @@
         .user-logo {
             height: 35px;
             width: 35px;
+            background-color: $Mercury;
         }
     }
 
@@ -86,9 +88,7 @@
 
         &::placeholder {
             color: black;
-
         }
-
     }
 
     &__banner {

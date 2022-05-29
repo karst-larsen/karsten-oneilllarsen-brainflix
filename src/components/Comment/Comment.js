@@ -1,11 +1,9 @@
-import "./Comment.scss"
 import Timestamp from "../Timestamp/Timestamp"
-import AnonymousBox from "../AvatarBox/AnonymousBox/AnonymousBox"
+import AnonymousBox from "../AnonymousBox/AnonymousBox"
 
 function Comment({ name, timestamp, comment }) {
     return (
         <div className="comment__card">
-            {/* <PlaceHolderAvater /> */}
             <div className="comment__icon-box"><AnonymousBox /></div>
             <div className="comment__text-information">
                 <div className="comment__banner">

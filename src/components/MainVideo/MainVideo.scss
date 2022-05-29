@@ -15,21 +15,17 @@
     width: 100%;
    
     &__source {
-        width: 100%;
-        max-width: 80rem;
-        height: 100%;
-        max-height: 45vw;
+        max-width: 100vw;
+        max-height: 56.25vw;
         object-fit: contain;
-        
+
         @include tablet {
-            width: 90%;
+            max-width: 90vw;
         }
 
         @include desktop {
-            height: 45rem;
+            max-width: 70vw;
         }
-        
-
     }
 
 }

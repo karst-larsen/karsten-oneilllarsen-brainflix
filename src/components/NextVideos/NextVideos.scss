@@ -6,7 +6,7 @@
     @include desktop {
         border-left: 1px solid $Mercury;
         width: 31.25rem;
-        margin-right: 8rem;
+        margin-right: 6rem;
     }
 }
 
@@ -46,11 +46,12 @@
 
     @include tablet {
         @include body-copy;
-        padding: 0.25rem 3rem;
+        padding: 0.5rem 3rem;
     }
 
     @include desktop {
         padding-left: 2rem;
+        padding-right: 0;
     }
 
     &__image {

@@ -24,6 +24,7 @@
 
     &:hover {
         background-color: $BrainFlix-DarkBlue;
+        cursor: pointer;
     }
 
     @include tablet {
@@ -45,7 +46,7 @@
         width: 100%;
 
         @include desktop {
-            width: 80%;
+            width: 90%;
         }
     }
 }

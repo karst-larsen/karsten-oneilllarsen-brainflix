@@ -1,4 +1,3 @@
-import "./AvatarBox.scss"
 import User from "../User/User";
 
 function AvatarBox() {
