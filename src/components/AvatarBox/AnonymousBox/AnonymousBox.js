@@ -1,4 +1,3 @@
-import User from "../../User/User"
 function AnonymousBox() {
     return (
         <div className="comment__avatar">

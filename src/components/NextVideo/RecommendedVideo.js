@@ -1,5 +1,3 @@
-import './RecommendedVideo.scss'
-
 function RecommendedVideo({ title, src, channel, onClick }) {
     return (
         <div className="next-video" onClick={() => onClick(title)}>

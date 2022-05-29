@@ -1,7 +1,7 @@
 import AvatarBox from "../AvatarBox/AvatarBox";
 import Comment from "../Comment/Comment";
 import CommentInput from "../CommentInput/CommentInput";
-import './Comments.scss'
+import './Comments.scss';
 
 function Comments({ commentData }) {
 

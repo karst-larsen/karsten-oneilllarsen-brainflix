@@ -1,3 +1,5 @@
+@use '../../styles/partials/breakpoints' as *;
+
 .video-section {
  display: flex;
  flex-direction: column;
@@ -10,11 +12,24 @@
     justify-content: center;
     align-items: center;
     background-color: black;
-    
+    width: 100%;
+   
     &__source {
-        width: 100vw;
-        height: 55vw;
+        width: 100%;
+        max-width: 80rem;
+        height: 100%;
+        max-height: 45vw;
         object-fit: contain;
+        
+        @include tablet {
+            width: 90%;
+        }
+
+        @include desktop {
+            height: 45rem;
+        }
+        
+
     }
 
 }

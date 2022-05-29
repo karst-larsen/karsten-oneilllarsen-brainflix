@@ -1,16 +1,39 @@
 @use '../../styles/partials/fontsizes' as *;
 @use '../../styles/partials/colours' as *;
+@use '../../styles/partials/breakpoints' as *;
+
+.next-section {
+    @include desktop {
+        border-left: 1px solid $Mercury;
+        width: 31.25rem;
+        margin-right: 8rem;
+    }
+}
 
 .next-videos {
     display: flex;
     flex-direction: column;
     width: 100%;
+    margin-bottom: 1rem;
+  
+    @include desktop {
+        margin-bottom: 3rem;
+    }
 
     &__header {
         @include mobile-subheader;
         color: $Silver;
         padding: 1rem 0 0.5rem 1rem;
         text-transform: uppercase;
+
+        @include tablet {
+            @include subheader;
+            padding: 1.25rem 0 0.75rem 3rem;
+        }
+
+        @include desktop {
+            padding-left: 2rem;
+        }
     }
 }
 
@@ -19,7 +42,16 @@
     display: flex;
     align-items: center;
     cursor: pointer;
-    padding: 0.5rem 1rem;
+    padding: 0.25rem 1rem;
+
+    @include tablet {
+        @include body-copy;
+        padding: 0.25rem 3rem;
+    }
+
+    @include desktop {
+        padding-left: 2rem;
+    }
 
     &__image {
         min-width: 6rem;
@@ -27,6 +59,11 @@
         object-fit: cover;
         border-radius: .25rem;
         background-color: $Mercury;
+
+        @include tablet {
+            min-width: 7rem;
+            height: 3.9375rem;
+        }
     }
 
     &__information {
@@ -39,4 +76,5 @@
         font-weight: bold;
         margin-bottom: 0.5rem;
     }
+
 }

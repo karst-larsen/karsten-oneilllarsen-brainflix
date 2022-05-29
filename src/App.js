@@ -3,14 +3,10 @@ import MainVideo from './components/MainVideo/MainVideo';
 import videoData from './data/video-details.json'
 import nextVideos from './data/videos.json'
 import VideoDetails from './components/VideoDetails/VideoDetails';
-import CommentCount from './components/CommentCount/CommentCount';
-import CommentForm from './components/CommentForm/CommentForm';
-import CommentSection from './components/CommentSection/CommentSection';
 import RecommendedVideos from './components/RecommendedVideos/RecommendedVideos';
 import React from 'react';
 import './styles/global.scss';
 import Comments from './components/Comments/Comments';
-// import HandleClick from './components/HandleClick/HandleClick';
 
 
 
@@ -41,22 +37,26 @@ class App extends React.Component {
         <header className="header">
           <Header />
         </header>
-        <div className="video-section">
+        <section className="video-section">
           <MainVideo src={image} />
-          <VideoDetails videoData={this.state.currentVideo}/>
-        </div>
-        <div className="comments">
-          <Comments commentData={comments}/>
-        </div>
-        <div className="next-section">
-          <RecommendedVideos 
-          currentVideo={currentVideo}
-          currentVideoTitle={title}
-          nextVideos={nextVideos} 
-          videoData={videoData} 
-          onClick={this.handleClick} 
-          />
-        </div>
+          <div className="desktop__wrapper">
+            <section className="desktop__section-left">
+              <VideoDetails videoData={this.state.currentVideo}/>
+              <div className="comments">
+                <Comments commentData={comments}/>
+              </div>
+            </section>
+            <section className="next-section">
+              <RecommendedVideos 
+              currentVideo={currentVideo}
+              currentVideoTitle={title}
+              nextVideos={nextVideos} 
+              videoData={videoData} 
+              onClick={this.handleClick} 
+              />
+            </section>
+          </div>
+        </section>
       </div>
     );
   }

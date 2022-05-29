@@ -1,9 +1,0 @@
-@use '../../styles/partials/fontsizes' as *;
-
-.comment {
-    &__count {
-        @include mobile-body-copy;
-        font-weight: bold;
-        padding-bottom: 1rem;
-    }
-}

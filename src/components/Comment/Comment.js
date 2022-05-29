@@ -1,6 +1,5 @@
 import "./Comment.scss"
 import Timestamp from "../Timestamp/Timestamp"
-import AvatarBox from "../AvatarBox/AvatarBox"
 import AnonymousBox from "../AvatarBox/AnonymousBox/AnonymousBox"
 
 function Comment({ name, timestamp, comment }) {

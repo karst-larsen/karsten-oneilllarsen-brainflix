@@ -30,3 +30,22 @@
         width: 10rem;
     }
 }
+
+.desktop {
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+
+        @include desktop {
+            flex-direction: row;
+        }
+    }
+
+    &__section-left {
+        width: 100%;
+
+        @include desktop {
+            width: 80%;
+        }
+    }
+}
