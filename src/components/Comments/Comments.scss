@@ -25,47 +25,50 @@
     }
 
     &__icon-box {
-        display: flex;
-        justify-content: center;
-        width: 10rem;
-
         .user-logo {
-            background-image: grey;
             height: 35px;
             width: 35px;
         }
+    }
+
+    &__text-information {
+        width: 100%;
     }
 
     &__label {
         @include mobile-labels-buttons;
         display: flex;
         flex-direction: column;
-        color: $Silver;
         text-transform: uppercase;
+        padding: 0;
     }
 
     &__input {
-        background-color: $Alabaster;
+        background-color: #FAFAFA;
+        border: 1px solid $Mercury;
+        border-radius: .25rem;
         padding: 0.5rem;
-        width: 90%;
-        align-self: flex-end;
-        margin-right: 1rem;
+        margin-bottom: 1rem;
         resize: none;
 
+        &::placeholder {
+            color: black;
+        }
     }
 
     &__banner {
         display: flex;
         justify-content: space-between;
         margin-bottom: 0.5rem;
-    };
+    }
+
     &__card {
-        // padding: 1rem;
         display: flex;
         font-size: .8125rem;
         border-bottom: 1px solid $Mercury;
         width: 90%;
         margin: 0 auto;
+        padding: 1rem 0;
     }
 
     &__name {
@@ -76,6 +79,7 @@
     
     &__count {
         @include mobile-body-copy;
+        display: inline-block;
         font-weight: bold;
         padding-bottom: 1rem;
         padding-left: 1rem;
@@ -90,13 +94,20 @@
     &__avatar {
         display: flex;
         flex-direction: column;
-        align-items:center;
-        width: 20%;
-        padding: 0 1rem;
+        align-items: center;
+        padding-right: 1rem;
     }
 
     &__timestamp {
         color: $Silver;
+    }
+
+    &__submit {
+        margin: 0 auto;
+        background-image: url(../../assets/images/Icons/add_comment.svg);
+        background-repeat: no-repeat;
+        background-position: 0.5rem 50%;
+        background-size: 1.25rem;
     }
 
 }

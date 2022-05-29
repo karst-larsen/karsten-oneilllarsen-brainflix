@@ -1,3 +1,6 @@
+@use '../../styles/partials/colours' as *;
+@use '../../styles/partials/breakpoints' as *;
+
 .header {
     display: flex;
     flex-direction: column;
@@ -7,21 +10,64 @@
     width: 100%;
     margin-bottom: 0.5rem;
 
+    @include tablet {
+        flex-direction: row;
+        margin-bottom: 0;
+
+    }
+    .user-logo {
+        height: 2.5rem;
+    
+        @include tablet {
+            order: 3;
+        }
+    }
+    
     &__logo {
         width: 7.5rem;
-        padding-top: 1rem;
+        padding: 0.5rem 0;
     }
 
     &__right-nav {
         display: flex;
+        align-items: center;
         flex-flow: row wrap;
-        width: 100%;
-        justify-content: center;
+        width: 90%;
+        justify-content: space-between;
     }
 
     &__search-bar {
-        width: 75%;
+        display: flex;
+        background-image: url(../../assets/images/Icons/search.svg);
+        background-repeat: no-repeat;
+        background-position: 0.5rem 50%;
+        background-size: 1rem;
+        border: 1px solid $Mercury;
+        background-color: $Alabaster;
+        padding-left: 2rem;
+        border-radius: .25rem;
+        width: 80%;
         height: 2.5rem;
-        margin-right: 1rem;
+        
+        &::placeholder {
+            color: black;
+        }
+
+        @include tablet {
+            width: 15rem;
+        }
+    }
+
+    &__upload-button {
+        background-image: url(../../assets/images/Icons/upload.svg);
+        background-repeat: no-repeat;
+        background-position: 0.5rem 50%;
+        background-size: 1.25rem;   
+        margin-top: 1rem;
+
+        @include tablet {
+            width: 10rem;
+            margin-top: 0;
+        }
     }
 }

@@ -11,16 +11,22 @@
 }
 
 .button {
+    @include mobile-labels-buttons;
     font-weight: 700;
-    width: 90%;
+    width: 100%;
     height: 2.5rem;
     border-radius: .25rem;
     border: 0rem;
     background-color: $BrainFlix-Blue;
     color: $White;
-    margin-top: 1rem;
+   
+    text-transform: uppercase;
 
     &:hover {
         background-color: $BrainFlix-DarkBlue;
+    }
+
+    @include tablet {
+        width: 10rem;
     }
 }

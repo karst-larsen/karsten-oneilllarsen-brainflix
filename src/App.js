@@ -47,9 +47,6 @@ class App extends React.Component {
         </div>
         <div className="comments">
           <Comments commentData={comments}/>
-          {/* <CommentCount commentData={comments} />
-          <CommentForm />
-          <CommentSection commentData={comments} /> */}
         </div>
         <div className="next-section">
           <RecommendedVideos 

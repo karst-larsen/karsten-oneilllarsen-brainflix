@@ -8,7 +8,7 @@ function Comment({ name, timestamp, comment }) {
         <div className="comment__card">
             {/* <PlaceHolderAvater /> */}
             <div className="comment__icon-box"><AnonymousBox /></div>
-            <div>
+            <div className="comment__text-information">
                 <div className="comment__banner">
                     <span className="comment__name">{name}</span>
                     <span className="comment__timestamp"><Timestamp epoch={timestamp} /></span>
