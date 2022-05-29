@@ -75,8 +75,7 @@
         }
 
         @include desktop {
-            padding-left: 6rem;
-            padding-right: 2rem;
+            padding: 2rem 2rem 0 6rem;
         }
     }
 
@@ -108,8 +107,8 @@
     &__count {
         @include mobile-body-copy;
         margin-left: 0.5rem;
-
     }
+
     &__icon {
         max-width: 1.25rem;
         @include tablet {
