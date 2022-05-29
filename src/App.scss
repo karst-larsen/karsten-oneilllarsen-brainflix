@@ -1,7 +1,7 @@
-@use './partials/fonts' as *;
-@use './partials/colours' as *;
-@use './partials/fontsizes' as *;
-@use './partials/breakpoints' as *;
+@use './styles/partials/fonts' as *;
+@use './styles/partials/colours' as *;
+@use './styles/partials/fontsizes' as *;
+@use './styles/partials/breakpoints' as *;
 
 * {
     box-sizing: border-box;

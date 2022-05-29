@@ -5,7 +5,7 @@ import nextVideos from './data/videos.json'
 import VideoDetails from './components/VideoDetails/VideoDetails';
 import NextVideos from './components/NextVideos/NextVideos';
 import React from 'react';
-import './styles/global.scss';
+import './App.scss';
 import Comments from './components/Comments/Comments';
 
 
