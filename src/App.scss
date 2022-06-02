@@ -50,3 +50,10 @@
         }
     }
 }
+
+.link {
+    text-decoration: none;
+    &:visited {
+        color: black;
+    }
+}

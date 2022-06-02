@@ -21,10 +21,12 @@
 
         @include tablet {
             max-width: 90vw;
+            max-height: 50.625vw;
         }
 
         @include desktop {
             max-width: 70vw;
+            max-height: 39.375vw;
         }
     }
 

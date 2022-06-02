@@ -1,10 +1,10 @@
 import './MainVideo.scss'
 
-function MainVideo({ src }) {
+function MainVideo({ mainVideo }) {
+    const { image, video, id } = mainVideo;
     return (
         <div className="video">
-            <video controls poster={src} className="video__source" >
-            </video>
+            <video controls src={`${video}?api_key=${id}`} poster={image} className="video__source" width='100%' />
         </div>
     )
 }

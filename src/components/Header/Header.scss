@@ -73,6 +73,9 @@
         background-position: 0.5rem 50%;
         background-size: 1.25rem;   
         margin-top: 1rem;
+        text-align: center;
+        text-decoration: none;
+        padding-top: .625rem;
 
         @include tablet {
             width: 10rem;

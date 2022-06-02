@@ -3,17 +3,17 @@ import Comment from "../Comment/Comment";
 import CommentInput from "../CommentInput/CommentInput";
 import './Comments.scss';
 
-function Comments({ commentData }) {
-    const { length } = commentData;
+function Comments({ mainVideo }) {
+    const { comments } = mainVideo;
 
     return (
         <>
-            <span className="comment__count">{length} Comments</span>
+            <span className="comment__count">{comments.length} Comments</span>
             <div className="comment__section">
                 <AvatarBox />
                 <CommentInput />
             </div>
-            {commentData.map((comments, index) => 
+            {comments.map((comments, index) => 
                 <Comment 
                 key={index}
                 name={comments.name} 

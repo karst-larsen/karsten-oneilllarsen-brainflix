@@ -6,7 +6,7 @@ import './Header.scss';
 
 function Header() {
     return (
-        <div className="header">
+        <header className="header">
             <div className="header__left-nav">
                 <Logo />
             </div>
@@ -15,7 +15,7 @@ function Header() {
             <User />
             <UploadButton />
             </div>
-        </div>
+        </header>
     )
 }
 
