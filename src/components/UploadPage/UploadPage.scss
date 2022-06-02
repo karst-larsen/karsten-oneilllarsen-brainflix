@@ -1,0 +1,63 @@
+@use '../../styles/partials/fontsizes' as *;
+@use '../../styles/partials/colours' as *;
+
+.upload {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__thumbnail {
+        display: flex;
+        width: 90%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__header {
+        @include mobile-page-header;
+        align-self: flex-start;
+    }
+
+    &__thumbnail-label {
+        @include mobile-labels-buttons;
+        align-self: flex-start;
+        color: $Silver;
+        text-transform: uppercase;
+    }
+    &__photo {
+        width: 100%;
+        border-radius: .25rem;
+    }
+
+    .form {
+        width: 90%;
+
+        &__label {
+            @include mobile-labels-buttons;
+            font-weight: bold;
+            color: $Silver;
+            text-transform: uppercase;
+        }
+        
+        &__input {
+            @include mobile-body-copy;
+            display: inline-block;
+            width: 100%;
+            resize: none;
+            padding: 0.5rem;
+            border: 1px solid $Mercury;
+            height: 30px;
+
+            &--description {
+                height: 80px;
+            }
+        }
+
+        &__button {
+            background-image: url(../../assets/images/Icons/publish.svg);
+            background-repeat: no-repeat;
+            background-position: 0.5rem;
+        }
+    }
+}
