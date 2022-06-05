@@ -1,34 +1,47 @@
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Header from './components/Header/Header';
 import './App.scss';
 import VideoSection from './components/VideoSection/VideoSection';
 import UploadPage from './components/UploadPage/UploadPage';
+import { Component } from 'react';
 
-function App() {
-  //On click, find the index of the item in the videoData array and use that index to set currentVideo
-  // handleClick = (title) => {
-  //   this.state.videoData.forEach(video => {
-  //     if (video.title === title) {
-  //       let index = this.state.videoData.indexOf(video); 
-  //       this.setState({
-  //         currentVideo: videoData[index]
-  //       })
-  //     } 
-  //   })
-  // }
-    // const { videoData, nextVideos, currentVideo } = this.state;
-    // const { image, comments, title } = currentVideo;
+class App extends Component {
+  state = {
+    uploadComplete: sessionStorage.getItem.upload || false
+}
 
-    return (
-      <Router>
-          <Header />
-          <Switch>
-            <Route path='/' exact component={VideoSection} />
-            <Route path='/videos/:id' component={VideoSection} />
-            <Route path='/upload' component={UploadPage} />
-          </Switch>
-      </Router>
-    );
+  uploadConfirmation = (event) => {
+    event.preventDefault();
+  }
+
+  handleClick = (event) => {
+    event.preventDefault();
+    this.setState({
+      uploadComplete: true
+    }, () => {
+      sessionStorage.setItem("upload", this.state.uploadComplete)
+      setTimeout(() => {
+        this.setState({
+          uploadComplete: false
+        }, () => {
+          sessionStorage.setItem("upload", this.state.uploadComplete)
+        })
+      }, 8000)
+    })
+  }
+
+    render() {
+      return (
+        <Router>
+            <Header uploadSuccess={this.state.uploadComplete} />
+            <Switch>
+              <Route path='/' exact component={VideoSection} />
+              <Route path='/videos/:id' component={VideoSection} />
+              <Route path='/upload' exact render={() => <UploadPage handleSubmit={this.uploadConfirmation} handleClick={this.handleClick}/>} />
+            </Switch>
+        </Router>
+      );
+    }
 }
 
 export default App;

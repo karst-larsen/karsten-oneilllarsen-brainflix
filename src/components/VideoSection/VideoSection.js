@@ -18,26 +18,45 @@ class VideoSection extends Component {
             this.setState({
                 nextVideos: response.data,
             });
-            const currentVideoId = this.props.match.params.id || response.data[0].id
+            const currentVideoId = response.data[0].id
             this.fetchMainVideo(currentVideoId)
         })
         
     }
     
     componentDidUpdate(prevProps) {
+        window.scrollTo(0, 0)
         const previousVideoId = prevProps.match.params.id;
         const currentVideoId = this.props.match.params.id;
         
         if (previousVideoId !== currentVideoId) {
+            //Clicking the BrainFlix logo when the user has another video selected causes an undefined ID
+            //This if condition covers this case by running the componentDidMount API retrieval
+            if (currentVideoId === undefined) {
+                const API_URL = `https://project-2-api.herokuapp.com/videos/?api_key=`;
+                const API_KEY = "01e77bc7-e260-474d-a7f8-d01e8c44f12e";
+                axios.get(`${API_URL}${API_KEY}`).then((response) => {
+                    this.setState({
+                        nextVideos: response.data,
+                    });
+                    const currentVideoId = response.data[0].id
+                    this.fetchMainVideo(currentVideoId)
+                })
+                return
+            }
+
+            //If the currentVideoId is not undefined, update the currentVideo to the ID of the video that the user clicked on
             this.fetchMainVideo(currentVideoId);
         }
     }
 
     fetchMainVideo = (videoId) => {
+        console.log(videoId)
         const API_URL = `https://project-2-api.herokuapp.com/videos/${videoId}?api_key=`;
         const API_KEY = "01e77bc7-e260-474d-a7f8-d01e8c44f12e";
         axios.get(`${API_URL}${API_KEY}`)
         .then(response => {
+            console.log(response)
             this.setState({
                 currentVideo: response.data
             }, () => document.title = `BrainFlix - ${response.data.title}`)

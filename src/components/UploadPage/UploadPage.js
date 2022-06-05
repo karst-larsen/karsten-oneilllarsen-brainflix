@@ -15,7 +15,6 @@ class UploadPage extends Component {
     }
 
     changeInput = (event) => {
-        console.log(event.target.value)
         this.setState({
             [event.target.name]: event.target.value
         })
@@ -23,6 +22,8 @@ class UploadPage extends Component {
 
     handleSubmit(event) {
         event.preventDefault()
+        console.log(event.target[0].value)
+        console.log(event.target[1].value)
     }
 
     render() {
@@ -34,7 +35,7 @@ class UploadPage extends Component {
                <span className="upload__thumbnail-label">Video Thumbnail</span>
                <img src={uploadPhoto} alt ="upload thumbnail" className="upload__photo"/>
             </div>    
-            <form className="form" onSubmit={this.handleSubmit}>
+            <form id="commentForm" className="form" onSubmit={this.props.handleSubmit}>
             <label htmlFor="title" className="form__label">Title your video
                 <input type="text" 
                 name="title" 
@@ -56,7 +57,11 @@ class UploadPage extends Component {
             </form>
             </div>
             <div className="upload__button-link">
-                <button className="button upload__button"><Link to="/" className="upload__link">Publish</Link></button>
+                <button form="commentForm" className="button upload__button" onClick={this.props.handleClick}>
+                <Link to="/" className="upload__link" >
+                   Publish
+                </Link>   
+                </button>
                 <Link to="/" className="upload__cancel-link">Cancel</Link>
             </div>
            </div>

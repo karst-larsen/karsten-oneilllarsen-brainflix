@@ -1,4 +1,4 @@
-import Timestamp from "../Timestamp/Timestamp"
+import Timestamp from "../../utils/Timestamp/Timestamp"
 import AnonymousBox from "../AnonymousBox/AnonymousBox"
 
 function Comment({ name, timestamp, comment }) {

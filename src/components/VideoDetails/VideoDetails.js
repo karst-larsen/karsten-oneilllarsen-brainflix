@@ -1,6 +1,6 @@
 import './VideoDetails.scss'
 import viewsIcon from '../../assets/images/Icons/views.svg'
-import Timestamp from '../Timestamp/Timestamp'
+import Timestamp from '../../utils/Timestamp/Timestamp'
 import likeIcon from '../../assets/images/Icons/likes.svg'
 
 function VideoDetails({ mainVideo }) {
