@@ -44,6 +44,7 @@
 
     &__section-left {
         width: 100%;
+        max-width: 53.125rem;
 
         @include desktop {
             width: 90%;

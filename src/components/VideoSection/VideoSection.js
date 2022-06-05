@@ -21,14 +21,15 @@ class VideoSection extends Component {
             const currentVideoId = this.props.match.params.id || response.data[0].id
             this.fetchMainVideo(currentVideoId)
         })
+        
     }
-
+    
     componentDidUpdate(prevProps) {
         const previousVideoId = prevProps.match.params.id;
         const currentVideoId = this.props.match.params.id;
-    
+        
         if (previousVideoId !== currentVideoId) {
-          this.fetchMainVideo(currentVideoId);
+            this.fetchMainVideo(currentVideoId);
         }
     }
 
@@ -39,7 +40,7 @@ class VideoSection extends Component {
         .then(response => {
             this.setState({
                 currentVideo: response.data
-            })
+            }, () => document.title = `BrainFlix - ${response.data.title}`)
         })
     }
 

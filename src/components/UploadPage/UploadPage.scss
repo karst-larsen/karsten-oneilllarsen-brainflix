@@ -1,22 +1,62 @@
 @use '../../styles/partials/fontsizes' as *;
 @use '../../styles/partials/colours' as *;
+@use '../../styles/partials/breakpoints' as *;
+
 
 .upload {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
+    &__desktop-wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @include desktop {
+            flex-direction: row;
+            width: calc(100% - 14rem);
+            padding-bottom: 1rem;
+            border-bottom: 1px solid $Mercury;
+        }
+
+    }
 
     &__thumbnail {
         display: flex;
-        width: 90%;
+        width: calc(100% - 2rem);
         flex-direction: column;
         align-items: center;
+
+        @include tablet {
+            width: calc(100% - 4rem);
+        }
+
+        @include desktop {
+            width: 50%;
+        }
     }
 
-    &__header {
+    &__title {
         @include mobile-page-header;
-        align-self: flex-start;
+        align-self: flex-start;  
+        font-weight: bold;
+        padding: 1rem;
+
+        @include tablet {
+            @include page-header;
+            width: calc(100% - 4rem);
+            border-bottom: 1px solid $Mercury;
+            margin: 1.5rem auto;
+            padding: 1.5rem 0;
+            
+        }
+
+        @include desktop {
+            width: calc(100% - 14rem)
+        }
     }
 
     &__thumbnail-label {
@@ -28,12 +68,90 @@
     &__photo {
         width: 100%;
         border-radius: .25rem;
+        margin-bottom: 1rem;
+
+        @include tablet {
+            width: 50%;
+            align-self: flex-start;
+        }
+
+        @include desktop {
+            width: 100%;
+            max-width: 22.0625rem;
+        }
+    }
+
+    &__link {
+        text-decoration: none;
+        color: white;
+    }
+
+    &__button-link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: calc(100% - 2rem) ;
+
+        @include tablet {
+            flex-direction: row;
+            justify-content: flex-end;
+        }
+
+        @include tablet {
+            width: calc(100% - 4rem);
+        }
+        
+        @include desktop {
+            width: calc(100% - 14rem);
+            padding-left: 2rem;
+        }
+    }
+
+    &__cancel-link {
+        @include mobile-labels-buttons;
+        text-decoration: none;
+        margin: 2rem 0;
+        text-transform: uppercase;
+        color: $BrainFlix-Blue;
+
+        @include tablet {
+            order: 0;
+            margin-right: 4.5rem;
+        }
+    }
+
+    &__button {
+        background-image: url(../../assets/images/Icons/publish.svg);
+        background-repeat: no-repeat;
+        background-position: 0.5rem;
+
+        @include tablet {
+            order: 1;
+        }
+        
     }
 
     .form {
-        width: 90%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: calc(100% - 2rem);
+        height: 100%;
+        top: .1875rem;
+
+        @include tablet {
+            width: calc(100% - 4rem);
+        }
+
+        @include desktop {
+            padding-left: 2rem;
+        }
+
 
         &__label {
+            display: inline-block;
+            width: 100%;
             @include mobile-labels-buttons;
             font-weight: bold;
             color: $Silver;
@@ -47,17 +165,23 @@
             resize: none;
             padding: 0.5rem;
             border: 1px solid $Mercury;
-            height: 30px;
+            height: 40px;
+            margin-bottom: 1rem;
+            background-color: $Alabaster;
+
+
+            &::placeholder {
+                color: $BrainFlix-Black;
+            }
 
             &--description {
                 height: 80px;
+
+                @include desktop {
+                    height: 7rem;
+                }
             }
         }
 
-        &__button {
-            background-image: url(../../assets/images/Icons/publish.svg);
-            background-repeat: no-repeat;
-            background-position: 0.5rem;
-        }
     }
 }
