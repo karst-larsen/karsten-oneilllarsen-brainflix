@@ -1,67 +1,47 @@
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
-import MainVideo from './components/MainVideo/MainVideo';
-import videoData from './data/video-details.json'
-import nextVideos from './data/videos.json'
-import VideoDetails from './components/VideoDetails/VideoDetails';
-import NextVideos from './components/NextVideos/NextVideos';
-import React from 'react';
 import './App.scss';
-import Comments from './components/Comments/Comments';
+import VideoSection from './pages/VideoSection/VideoSection';
+import UploadPage from './pages/UploadPage/UploadPage';
+import { Component } from 'react';
 
-
-
-class App extends React.Component {
-  //Initializing state with video JSON files and currentVideo being displayed to page
+class App extends Component {
+  //Holding uploadComplete state in App as it is the parent to both Header and the UploadPage route 
   state = {
-    videoData,
-    nextVideos,
-    currentVideo: videoData[0]
+    uploadComplete: sessionStorage.getItem.upload || false
   }
 
-  //On click, find the index of the item in the videoData array and use that index to set currentVideo
-  handleClick = (title) => {
-    this.state.videoData.forEach(video => {
-      if (video.title === title) {
-        let index = this.state.videoData.indexOf(video); 
+  notifyVideoUpload = (event) => {
+    event.preventDefault();
+
+    //Set the state of uploadComplete to display the upload complete message for 8 seconds before returning to uploadComplete: false
+    this.setState({
+      uploadComplete: true
+    }, () => {
+      sessionStorage.setItem("upload", this.state.uploadComplete)
+      setTimeout(() => {
         this.setState({
-          currentVideo: videoData[index]
+          uploadComplete: false
+        }, () => {
+          sessionStorage.setItem("upload", this.state.uploadComplete)
         })
-      } 
+      }, 8000)
     })
   }
 
-  render() {
-    const { videoData, nextVideos, currentVideo } = this.state;
-    const { image, comments, title } = currentVideo;
-
-    return (
-      <div className="App">
-        <header className="header">
-          <Header />
-        </header>
-        <section className="video-section">
-          <MainVideo src={image} />
-          <div className="desktop__wrapper">
-            <section className="desktop__section-left">
-              <VideoDetails videoData={this.state.currentVideo}/>
-              <div className="comments">
-                <Comments commentData={comments}/>
-              </div>
-            </section>
-            <section className="next-section">
-              <NextVideos 
-              currentVideo={currentVideo}
-              currentVideoTitle={title}
-              nextVideos={nextVideos} 
-              videoData={videoData} 
-              onClick={this.handleClick} 
-              />
-            </section>
-          </div>
-        </section>
-      </div>
-    );
-  }
+    //Passing down uploadSuccess state to Header and notifyVideoUpload to Upload Page button
+    render() {
+      return (
+        <Router>
+            <Header uploadSuccess={this.state.uploadComplete} />
+            <Switch>
+              <Route path='/' exact component={VideoSection} />
+              <Route path='/videos/:id' component={VideoSection} />
+              <Route path='/upload' exact render={() => <UploadPage handleClick={this.notifyVideoUpload}/>} />
+            </Switch>
+        </Router>
+      );
+    }
 }
 
 export default App;

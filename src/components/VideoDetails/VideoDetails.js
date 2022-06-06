@@ -1,10 +1,11 @@
 import './VideoDetails.scss'
 import viewsIcon from '../../assets/images/Icons/views.svg'
-import Timestamp from '../Timestamp/Timestamp'
+import Timestamp from '../../utils/Timestamp/Timestamp'
 import likeIcon from '../../assets/images/Icons/likes.svg'
 
-function VideoDetails({ videoData }) {
-    const { title, channel, timestamp, views, likes, description } = videoData;
+function VideoDetails({ mainVideo }) {
+    //Displaying object of mainVideo information
+    const { title, channel, timestamp, views, likes, description } = mainVideo;
     return (
         <>
         <div className="video__title">{title}</div>

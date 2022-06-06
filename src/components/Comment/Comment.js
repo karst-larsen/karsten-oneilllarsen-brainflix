@@ -1,10 +1,14 @@
-import Timestamp from "../Timestamp/Timestamp"
-import AnonymousBox from "../AnonymousBox/AnonymousBox"
+import Timestamp from "../../utils/Timestamp/Timestamp"
 
 function Comment({ name, timestamp, comment }) {
+    //Placeholder component to display comment information
     return (
-        <div className="comment__card">
-            <div className="comment__icon-box"><AnonymousBox /></div>
+        <article className="comment__card">
+            <div className="comment__icon-box">
+                <div className="comment__avatar">
+                    <div className="comment__anonymous-box" alt="greyed out avatar"></div>
+                </div>
+            </div>
             <div className="comment__text-information">
                 <div className="comment__banner">
                     <span className="comment__name">{name}</span>
@@ -12,7 +16,7 @@ function Comment({ name, timestamp, comment }) {
                 </div>
                 <span className="comment__comment-content">{comment}</span>
             </div>
-        </div>
+        </article>
     )
 }
 

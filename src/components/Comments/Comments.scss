@@ -6,14 +6,14 @@
     &__section {
         display: flex;
         justify-content: center;
-        border-bottom: 1px solid $Mercury;
+        border-bottom: .0625rem solid $Mercury;
         padding-bottom: 1rem;
         width: calc(100% - 2rem);
         margin: 0 auto;
 
         .user-logo {
-            width: 35px;
-            height: 35px;
+            width: 2.1875rem;
+            height: 2.1875rem;
             margin-top: 1rem;
             background-color: $Mercury;
 
@@ -36,15 +36,15 @@
 
     &__anonymous-box {
         background-color: $Mercury;
-        width: 35px;
-        height: 35px;
+        width: 2.1875rem;
+        height: 2.1875rem;
         border-radius: 50%;
     }
 
     &__icon-box {
         .user-logo {
-            height: 35px;
-            width: 35px;
+            height: 2.1875rem;
+            width: 2.1875rem;
             background-color: $Mercury;
         }
     }
@@ -74,7 +74,7 @@
 
     &__input {
         background-color: #FAFAFA;
-        border: 1px solid $Mercury;
+        border: .0625rem solid $Mercury;
         border-radius: .25rem;
         padding: 0.5rem;
         margin-bottom: 1rem;
@@ -94,13 +94,14 @@
     &__banner {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         margin-bottom: 0.5rem;
     }
 
     &__card {
         display: flex;
         font-size: .8125rem;
-        border-bottom: 1px solid $Mercury;
+        border-bottom: .0625rem solid $Mercury;
         width: calc(100% - 2rem);
         margin: 0 auto;
         padding: 1rem 0;
@@ -180,7 +181,7 @@
             margin: 0;
             margin-left: auto;
             position: relative;
-            top: 2px;
+            top: .125rem;
         }
 
         @include desktop {

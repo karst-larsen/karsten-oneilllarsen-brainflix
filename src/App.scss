@@ -44,9 +44,25 @@
 
     &__section-left {
         width: 100%;
+        max-width: 53.125rem;
 
         @include desktop {
             width: 90%;
         }
     }
+}
+
+.link {
+    text-decoration: none;
+    &:visited {
+        color: black;
+    }
+}
+
+.user-logo {
+    width: 2.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: 20%;
+    
 }
