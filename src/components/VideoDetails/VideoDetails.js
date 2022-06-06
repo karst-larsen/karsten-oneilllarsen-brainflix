@@ -4,6 +4,7 @@ import Timestamp from '../../utils/Timestamp/Timestamp'
 import likeIcon from '../../assets/images/Icons/likes.svg'
 
 function VideoDetails({ mainVideo }) {
+    //Displaying object of mainVideo information
     const { title, channel, timestamp, views, likes, description } = mainVideo;
     return (
         <>

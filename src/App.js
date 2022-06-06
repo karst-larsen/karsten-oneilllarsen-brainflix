@@ -1,21 +1,20 @@
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
 import './App.scss';
-import VideoSection from './components/VideoSection/VideoSection';
-import UploadPage from './components/UploadPage/UploadPage';
+import VideoSection from './pages/VideoSection/VideoSection';
+import UploadPage from './pages/UploadPage/UploadPage';
 import { Component } from 'react';
 
 class App extends Component {
+  //Holding uploadComplete state in App as it is the parent to both Header and the UploadPage route 
   state = {
     uploadComplete: sessionStorage.getItem.upload || false
-}
-
-  uploadConfirmation = (event) => {
-    event.preventDefault();
   }
 
-  handleClick = (event) => {
+  notifyVideoUpload = (event) => {
     event.preventDefault();
+
+    //Set the state of uploadComplete to display the upload complete message for 8 seconds before returning to uploadComplete: false
     this.setState({
       uploadComplete: true
     }, () => {
@@ -30,6 +29,7 @@ class App extends Component {
     })
   }
 
+    //Passing down uploadSuccess state to Header and notifyVideoUpload to Upload Page button
     render() {
       return (
         <Router>
@@ -37,7 +37,7 @@ class App extends Component {
             <Switch>
               <Route path='/' exact component={VideoSection} />
               <Route path='/videos/:id' component={VideoSection} />
-              <Route path='/upload' exact render={() => <UploadPage handleSubmit={this.uploadConfirmation} handleClick={this.handleClick}/>} />
+              <Route path='/upload' exact render={() => <UploadPage handleClick={this.notifyVideoUpload}/>} />
             </Switch>
         </Router>
       );

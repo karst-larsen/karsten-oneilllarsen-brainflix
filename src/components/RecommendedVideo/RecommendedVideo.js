@@ -1,4 +1,5 @@
 function RecommendedVideo({ title, src, channel }) {
+    //Placeholder component to display recommended video information
     return (
         <div className="next-video">
             <img src={src} alt="video preview" className="next-video__image" />

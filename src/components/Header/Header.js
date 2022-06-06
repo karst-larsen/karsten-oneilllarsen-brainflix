@@ -1,24 +1,22 @@
 import Logo from "../../assets/images/Logo/BrainFlix-logo.svg"
-import SearchBar from "../SearchBar/SearchBar"
-import User from "../User/User"
-import UploadButton from "../UploadButton/UploadButton"
-import './Header.scss';
+import userLogo from '../../assets/images/Icons/Mohan-muruge.jpg';
 import { Link } from 'react-router-dom'
+import './Header.scss';
 
-function Header(props) {
+function Header({ uploadSuccess }) {
     return (
         <>
             <header className="header">
             <div className="header__left-nav">
-                <Link to="/"><img src={Logo} alt="Logo" className="header__logo" /></Link>
+                <Link to="/"><img src={Logo} alt="BrainFlix Logo" className="header__logo" /></Link>
             </div>
             <div className="header__right-nav">
-            <SearchBar />
-            <User />
-            <UploadButton />
+                <input type="text" className="header__search-bar" placeholder="Search" />
+                <img src={userLogo} alt='User Avatar' className="user-logo" />
+                <Link to="/upload" className="button header__upload-button">Upload</Link>
             </div>
             </header>
-            <div className={`header__upload-notification ${props.uploadSuccess ? 'header__upload-notification--success' : ''}`}><span>Upload Complete!</span></div>
+            <div className={`header__upload-notification ${uploadSuccess ? 'header__upload-notification--success' : ''}`}><span>Upload Complete!</span></div>
         </>
 
     )

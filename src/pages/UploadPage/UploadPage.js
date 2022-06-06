@@ -1,32 +1,30 @@
 import uploadPhoto from '../../assets/images/Icons/Upload-video-preview.jpg';
-import './UploadPage.scss'
 import { Component } from 'react'
 import { Link } from 'react-router-dom'
+import './UploadPage.scss'
 
 
 class UploadPage extends Component {
+    //Stores form data within state allowing for a controlled form component 
     state = {
         title: "",
         description: "",
     }
 
     componentDidMount() {   
+    //Changes title of page upon component mount
         document.title = 'BrainFlix - Upload Page'
     }
 
     changeInput = (event) => {
+    //Stores input data within state
         this.setState({
             [event.target.name]: event.target.value
         })
     }
 
-    handleSubmit(event) {
-        event.preventDefault()
-        console.log(event.target[0].value)
-        console.log(event.target[1].value)
-    }
-
     render() {
+        //Upload video section with information inputs, plus publish and cancel links
         return (
         <div className="upload">
            <h1 className="upload__title">Upload Video</h1>
@@ -35,7 +33,7 @@ class UploadPage extends Component {
                <span className="upload__thumbnail-label">Video Thumbnail</span>
                <img src={uploadPhoto} alt ="upload thumbnail" className="upload__photo"/>
             </div>    
-            <form id="commentForm" className="form" onSubmit={this.props.handleSubmit}>
+            <form id="commentForm" className="form" >
             <label htmlFor="title" className="form__label">Title your video
                 <input type="text" 
                 name="title" 

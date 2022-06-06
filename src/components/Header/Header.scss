@@ -8,9 +8,8 @@
     align-items: center;
     background-color: white;
     width: 100%;
-    // margin-bottom: 0.5rem;
     padding-bottom: 1rem;
-    border-bottom: 1px solid $Mercury;
+    border-bottom: .0625rem solid $Mercury;
     z-index: 1;
 
     @include tablet {
@@ -57,7 +56,7 @@
         background-repeat: no-repeat;
         background-position: 0.5rem 50%;
         background-size: 1rem;
-        border: 1px solid $Mercury;
+        border: .0625rem solid $Mercury;
         background-color: $Alabaster;
         padding-left: 2rem;
         border-radius: .25rem;
@@ -94,12 +93,12 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 0px;
+        height: 0rem;
         transition: height 0.5s ease-in-out;
         position: relative;
         z-index: 0;
         color: white;
-        background-color: green;
+        background-color: $BrainFlix-Blue;
         
         span {
             transition: opacity 0.2s ease-in-out;
@@ -107,7 +106,7 @@
         }
 
         &--success {
-            height: 40px;
+            height: 2.5rem;
 
             span {
                 opacity: 100;
