@@ -1,8 +1,9 @@
 import Comment from "../Comment/Comment";
-import './Comments.scss';
 import userLogo from '../../assets/images/Icons/Mohan-muruge.jpg';
+import './Comments.scss';
 
 function Comments({ mainVideo }) {
+    //Displaying comment length information plus form for comment input
     const { comments } = mainVideo;
     const { length } = comments;
 
@@ -20,6 +21,7 @@ function Comments({ mainVideo }) {
                         <input type="submit" className="button comment__submit" value="COMMENT" disabled />
                 </form>
             </div>
+            {/* Mapping over mainVideo.comments to display API retrieved comments */}
             {comments.map(({ name, comment, timestamp}, index) => 
                 <Comment 
                 key={index}

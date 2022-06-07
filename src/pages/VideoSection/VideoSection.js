@@ -16,14 +16,23 @@ class VideoSection extends Component {
     //Retrieve API for video data
     const API_URL = `https://project-2-api.herokuapp.com/videos/?api_key=`;
     const API_KEY = "01e77bc7-e260-474d-a7f8-d01e8c44f12e";
-    axios.get(`${API_URL}${API_KEY}`).then((response) => {
-        this.setState({
-            nextVideos: response.data,
-        });
-        const currentVideoId = response.data[0].id
-        this.fetchMainVideo(currentVideoId)
+    axios.get('http://localhost:8080/videos')
+    .then(response => {
+        this.setState( {
+            nextVideos: response.data
+            });
+            const currentVideoId = response.data[0].id
+            this.fetchMainVideo(currentVideoId)
         })
     }
+    // axios.get(`${API_URL}${API_KEY}`).then((response) => {
+    //     this.setState({
+    //         nextVideos: response.data,
+    //     });
+    //     const currentVideoId = response.data[0].id
+    //     this.fetchMainVideo(currentVideoId)
+    //     })
+    // }
     
     componentDidUpdate(prevProps) {
     //Update the video information based on which video or link (BrainFlix logo) the user has clicked on
@@ -35,18 +44,26 @@ class VideoSection extends Component {
             //Clicking the BrainFlix logo when the user has another video selected causes an undefined ID
             //This if condition covers this case by running the componentDidMount initial API retrieval
             if (currentVideoId === undefined) {
-                const API_URL = `https://project-2-api.herokuapp.com/videos/?api_key=`;
-                const API_KEY = "01e77bc7-e260-474d-a7f8-d01e8c44f12e";
-                axios.get(`${API_URL}${API_KEY}`).then((response) => {
-                    this.setState({
-                        nextVideos: response.data,
-                    });
-                    const currentVideoId = response.data[0].id
-                    this.fetchMainVideo(currentVideoId)
-                })
+                // const API_URL = `https://project-2-api.herokuapp.com/videos/?api_key=`;
+                // const API_KEY = "01e77bc7-e260-474d-a7f8-d01e8c44f12e";
+                // axios.get(`${API_URL}${API_KEY}`).then((response) => {
+                //     this.setState({
+                //         nextVideos: response.data,
+                //     });
+                //     const currentVideoId = response.data[0].id
+                //     this.fetchMainVideo(currentVideoId)
+                // })
+                axios.get('http://localhost:8080/videos')
+                .then(response => {
+                    this.setState( {
+                        nextVideos: response.data
+                        });
+                        const currentVideoId = response.data[0].id
+                        this.fetchMainVideo(currentVideoId)
+                    })
+                
                 return
             }
-
             //If the currentVideoId is not undefined, update the currentVideo to the ID of the video that the user clicked on
             this.fetchMainVideo(currentVideoId);
         }

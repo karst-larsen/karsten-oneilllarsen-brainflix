@@ -1,3 +1,5 @@
+//Takes in the timestamp from videoData and converts it to a day / month / year output
+
 function Timestamp({ epoch }) {
     let epochMonth = 2682000;
     let epochDay = 86400;

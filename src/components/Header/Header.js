@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import './Header.scss';
 
 function Header({ uploadSuccess }) {
+    //Displaying header information, extending upload success notification bar upon updated state from App
     return (
         <>
             <header className="header">
