@@ -3,7 +3,7 @@ import userLogo from '../../assets/images/Icons/Mohan-muruge.jpg';
 import { Link } from 'react-router-dom'
 import './Header.scss';
 
-function Header({ uploadSuccess }) {
+function Header() {
     //Displaying header information, extending upload success notification bar upon updated state from App
     return (
         <>
@@ -17,7 +17,7 @@ function Header({ uploadSuccess }) {
                 <Link to="/upload" className="button header__upload-button">Upload</Link>
             </div>
             </header>
-            <div className={`header__upload-notification ${uploadSuccess ? 'header__upload-notification--success' : ''}`}><span>Upload Complete!</span></div>
+            
         </>
 
     )
