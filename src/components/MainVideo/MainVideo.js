@@ -5,7 +5,7 @@ function MainVideo({ mainVideo }) {
     const { image, video, id } = mainVideo;
     return (
         <div className="video">
-            <video controls src={`${video}?api_key=${id}`} poster={image} className="video__source" />
+            <video controls src={`${video}?api_key=${id}`} poster={image} className="video__source" />       
         </div>
     )
 }

@@ -1,7 +1,7 @@
 import { Component } from 'react'
 import { Link } from 'react-router-dom'
 import './UploadPage.scss'
-import VideoTimestamp from '../../utils/VideoTimestamp'
+import VideoTimestamp from '../../utils/VideoTimestamp/VideoTimestamp'
 import axios from 'axios';
 
 
@@ -10,6 +10,7 @@ class UploadPage extends Component {
     state = {
         title: "",
         description: "",
+        validInput: true,
         image: null
     }
 
@@ -37,7 +38,17 @@ class UploadPage extends Component {
     uploadVideo = (e) => {
         e.preventDefault()
     
-    //Uses randomized image held from state for upload thumbnail to post as video image
+    //Uses randomized image held from state for upload thumbnail to post as video image if the inputs are not empty
+
+    if (!this.state.title || !this.state.description ) {
+        console.log('This input should be filled')
+        this.setState({
+            validInput: false
+        })
+        return
+    } else {
+
+    }
         axios.post('http://localhost:8080/videos', {
             title: e.target.title.value, 
             description: e.target.description.value, 
@@ -60,7 +71,9 @@ class UploadPage extends Component {
             <div className="upload__details">
                 <div className="upload__thumbnail">
                     <span className="upload__thumbnail-label">Video Thumbnail</span>
-                    <img src={this.state.image} alt ="upload thumbnail" className="upload__photo"/>
+                    {!this.state.image && <span>Loading...</span>}
+                    {this.state.image && <img src={this.state.image} alt ="upload thumbnail" className="upload__photo"/>}
+                    
                 </div>
                 <div className="upload__inputs">    
                 <label htmlFor="title" className="form__label">Title your video
@@ -69,7 +82,7 @@ class UploadPage extends Component {
                     name="title" 
                     placeholder="Add a title to your video" 
                     value={this.state.title} 
-                    className="form__input" 
+                    className={`form__input ${this.state.validInput ? '' : 'form__input--invalid'}`}
                     onChange={this.changeInput}
                     />    
                 </label>
@@ -79,13 +92,14 @@ class UploadPage extends Component {
                     name="description" 
                     placeholder="Add a description to your video" 
                     value={this.state.description} 
-                    className="form__input form__input--description" 
+                    className={`form__input form__input--description ${this.state.validInput ? '' : 'form__input--invalid'}`} 
                     onChange={this.changeInput}
                     />
                 </label>
                 </div>
             </div>
             <div className="upload__button-link">
+                {!this.state.validInput && <span className="form__invalid">Please ensure all fields are filled.</span>}
                 <button type="submit" className="button upload__button">
                         Publish
                 </button>
