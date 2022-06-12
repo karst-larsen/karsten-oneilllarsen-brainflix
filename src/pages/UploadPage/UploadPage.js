@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import { Link, Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './UploadPage.scss'
 import VideoTimestamp from '../../utils/VideoTimestamp'
 import axios from 'axios';
@@ -16,12 +16,14 @@ class UploadPage extends Component {
     componentDidMount() {   
     //Changes title of page upon component mount
         document.title = 'BrainFlix - Upload Page'
+    //Retrieves a random image from static images to mimic a variety of user image uploads
         axios.get('http://localhost:8080/images/images')
         .then(response => {
             this.setState({
                 image: response.data[Math.floor((Math.random() * response.data.length))].image
             })
         })
+        .catch(error => console.error(error))
     }
 
     changeInput = (event) => {
@@ -35,6 +37,7 @@ class UploadPage extends Component {
     uploadVideo = (e) => {
         e.preventDefault()
     
+    //Uses randomized image held from state for upload thumbnail to post as video image
         axios.post('http://localhost:8080/videos', {
             title: e.target.title.value, 
             description: e.target.description.value, 
@@ -44,6 +47,7 @@ class UploadPage extends Component {
             const { history: { push } } = this.props;
             push('/upload/uploadComplete')
         })
+        .catch(error => console.error(error))
     }
 
     render() {
@@ -61,6 +65,7 @@ class UploadPage extends Component {
                 <div className="upload__inputs">    
                 <label htmlFor="title" className="form__label">Title your video
                     <input type="text" 
+                    id="title"
                     name="title" 
                     placeholder="Add a title to your video" 
                     value={this.state.title} 
@@ -70,6 +75,7 @@ class UploadPage extends Component {
                 </label>
                 <label htmlFor="description" className="form__label">Add a video description    
                     <textarea
+                    id="description"
                     name="description" 
                     placeholder="Add a description to your video" 
                     value={this.state.description} 
@@ -83,7 +89,7 @@ class UploadPage extends Component {
                 <button type="submit" className="button upload__button">
                         Publish
                 </button>
-                <Link to='/' className="upload__cancel-link" >Cancel</Link>
+                <Link to='/' className="upload__cancel-link">Cancel</Link>
             </div>
             </form>
             </div>
