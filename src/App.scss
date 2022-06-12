@@ -7,7 +7,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: "Avenir", sans-serif;
+    font-family: "Avenir Next", sans-serif;
 }
 
 .button {
@@ -17,13 +17,13 @@
     height: 2.5rem;
     border-radius: .25rem;
     border: 0rem;
-    background-color: $BrainFlix-Blue;
+    background-color: $Button-Header-Blue;
     color: $White;
    
     text-transform: uppercase;
 
     &:hover {
-        background-color: $BrainFlix-DarkBlue;
+        background-color: $Button-Hover;
         cursor: pointer;
     }
 

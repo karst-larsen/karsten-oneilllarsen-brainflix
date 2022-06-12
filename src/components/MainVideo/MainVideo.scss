@@ -1,11 +1,5 @@
 @use '../../styles/partials/breakpoints' as *;
 
-.video-section {
- display: flex;
- flex-direction: column;
- justify-content: center;
- align-items: center; 
-}
 .video {
     display: flex;
     flex-direction: column;

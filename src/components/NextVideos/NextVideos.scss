@@ -4,7 +4,7 @@
 
 .next-section {
     @include desktop {
-        border-left: .0625rem solid $Mercury;
+        border-left: .0625rem solid $Divider;
         width: 31.25rem;
         margin-right: 6rem;
     }
@@ -22,7 +22,7 @@
 
     &__header {
         @include mobile-subheader;
-        color: $Silver;
+        color: $Secondary-Text;
         padding: 1rem 0 0.5rem 1rem;
         text-transform: uppercase;
 
@@ -59,7 +59,7 @@
         height: 3.375rem;
         object-fit: cover;
         border-radius: .25rem;
-        background-color: $Mercury;
+        background-color: $Divider;
 
         @include tablet {
             min-width: 7rem;

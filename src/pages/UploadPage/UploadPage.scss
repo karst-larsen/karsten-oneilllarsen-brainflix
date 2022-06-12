@@ -65,7 +65,7 @@
         @include tablet {
             @include page-header;
             width: calc(100% - 4rem);
-            border-bottom: .0625rem solid $Mercury;
+            border-bottom: .0625rem solid $Divider;
             margin: 1.5rem auto;
             padding: 1.5rem 0;
         }
@@ -78,7 +78,7 @@
     &__thumbnail-label {
         @include mobile-labels-buttons;
         align-self: flex-start;
-        color: $Silver;
+        color: $Secondary-Text;
         text-transform: uppercase;
     }
     &__photo {
@@ -129,7 +129,7 @@
 
         @include tablet {
             width: 100%;
-            border-top: .0625rem solid $Mercury;
+            border-top: .0625rem solid $Divider;
         }
         
         @include desktop {
@@ -143,7 +143,7 @@
         text-decoration: none;
         margin: 2rem 0;
         text-transform: uppercase;
-        color: $BrainFlix-Blue;
+        color: $Button-Header-Blue;
 
         @include tablet {
             order: 0;
@@ -183,7 +183,7 @@
             width: 100%;
             @include mobile-labels-buttons;
             font-weight: bold;
-            color: $Silver;
+            color: $Secondary-Text;
             text-transform: uppercase;
         }
         
@@ -193,14 +193,14 @@
             width: 100%;
             resize: none;
             padding: 0.5rem;
-            border: .0625rem solid $Mercury;
+            border: .0625rem solid $Divider;
             height: 2.5rem;
             margin-bottom: 1rem;
-            background-color: $Alabaster;
+            background-color: $Form-BG;
 
 
             &::placeholder {
-                color: $BrainFlix-Black;
+                color: $Primary-Text;
             }
 
             &--description {

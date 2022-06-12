@@ -21,9 +21,11 @@ class VideoSection extends Component {
             nextVideos: response.data,
             uploadSuccess: this.props.match.params.complete
             });
+    //Chaining .then() for second API call breaks functionality -- cannot implement feedback for .then() chain
             const currentVideoId = response.data[0].id
             this.fetchMainVideo(currentVideoId)
         })
+    .catch(error => console.error(error))
     }
     
     componentDidUpdate(prevProps) {
@@ -51,6 +53,7 @@ class VideoSection extends Component {
                         const currentVideoId = response.data[0].id
                         this.fetchMainVideo(currentVideoId)
                     })
+                .catch(error => console.error(error))
                 return
             }
             //If the currentVideoId is not undefined, update the currentVideo to the ID of the video that the user clicked on
@@ -66,9 +69,11 @@ class VideoSection extends Component {
                         currentVideo: response.data
                         }, () => document.title = `BrainFlix - ${response.data.title}`);
                     })
+                .catch(error => console.error(error))
     }
 
     //Passing down retrieved state of the current main video and next videos array to children components
+    //Displays a header above mainVideo if user uploaded video
     render() {
         const { currentVideo, nextVideos, uploadSuccess } = this.state;
         return (

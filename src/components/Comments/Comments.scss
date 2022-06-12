@@ -6,7 +6,7 @@
     &__section {
         display: flex;
         justify-content: center;
-        border-bottom: .0625rem solid $Mercury;
+        border-bottom: .0625rem solid $Divider;
         padding-bottom: 1rem;
         width: calc(100% - 2rem);
         margin: 0 auto;
@@ -15,7 +15,7 @@
             width: 2.1875rem;
             height: 2.1875rem;
             margin-top: 1rem;
-            background-color: $Mercury;
+            background-color: $Divider;
 
             @include tablet {
                 margin-top: 1.375rem;
@@ -35,7 +35,7 @@
     }
 
     &__anonymous-box {
-        background-color: $Mercury;
+        background-color: $Divider;
         width: 2.1875rem;
         height: 2.1875rem;
         border-radius: 50%;
@@ -45,7 +45,7 @@
         .user-logo {
             height: 2.1875rem;
             width: 2.1875rem;
-            background-color: $Mercury;
+            background-color: $Divider;
         }
     }
 
@@ -59,7 +59,7 @@
         flex-direction: column;
         text-transform: uppercase;
         padding: 0;
-        color: $Silver;
+        color: $Secondary-Text;
 
         @include tablet {
             width: 75%;
@@ -73,8 +73,8 @@
     }
 
     &__input {
-        background-color: #FAFAFA;
-        border: .0625rem solid $Mercury;
+        background-color: $Form-BG;
+        border: .0625rem solid $Divider;
         border-radius: .25rem;
         padding: 0.5rem;
         margin-bottom: 1rem;
@@ -87,7 +87,7 @@
         }
 
         &::placeholder {
-            color: black;
+            color: $VideoPlayer-Components;
         }
     }
 
@@ -101,7 +101,7 @@
     &__card {
         display: flex;
         font-size: .8125rem;
-        border-bottom: .0625rem solid $Mercury;
+        border-bottom: .0625rem solid $Divider;
         width: calc(100% - 2rem);
         margin: 0 auto;
         padding: 1rem 0;
@@ -116,14 +116,14 @@
             margin-left: auto;
             padding: 1.5rem 2rem 1.5rem 0;
             border-bottom: 0rem;
-            border-top: .0625rem solid $Mercury;
+            border-top: .0625rem solid $Divider;
         }
     }
 
     &__name {
         @include mobile-labels-buttons;
         font-weight: bold;
-        color: black;
+        color: $VideoPlayer-Components;
 
         @include tablet {
             @include labels-buttons;
@@ -167,7 +167,7 @@
     }
 
     &__timestamp {
-        color: $Silver;
+        color: $Secondary-Text;
     }
 
     &__submit {
