@@ -18,7 +18,7 @@ class UploadPage extends Component {
     document.title = "BrainFlix - Upload Page";
     //Retrieves a random image from static images to mimic a variety of user image uploads
     axios
-      .get("https://restless-shadow-5418.fly.dev/images/")
+      .get("https://restless-shadow-5418.fly.dev/images/images")
       .then((response) => {
         console.log(response);
         this.setState({
