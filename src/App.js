@@ -4,7 +4,6 @@ import './App.scss';
 import VideoSection from './pages/VideoSection/VideoSection';
 import UploadPage from './pages/UploadPage/UploadPage';
 
-
 function App(){
       return (
         <Router>
