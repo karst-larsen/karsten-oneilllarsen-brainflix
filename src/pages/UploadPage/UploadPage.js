@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { Link } from "react-router-dom";
+import uploadImage from "../../assets/images/Icons/Upload-video-preview.jpg";
 import "./UploadPage.scss";
 import VideoTimestamp from "../../utils/VideoTimestamp/VideoTimestamp";
 import axios from "axios";
@@ -10,24 +11,11 @@ class UploadPage extends Component {
     title: "",
     description: "",
     validInput: true,
-    image: null,
   };
 
   componentDidMount() {
     //Changes title of page upon component mount
     document.title = "BrainFlix - Upload Page";
-    //Retrieves a random image from static images to mimic a variety of user image uploads
-    axios
-      .get("https://restless-shadow-5418.fly.dev/images/images")
-      .then((response) => {
-        console.log(response);
-        this.setState({
-          image:
-            response.data[Math.floor(Math.random() * response.data.length)]
-              .image,
-        });
-      })
-      .catch((error) => console.error(error));
   }
 
   changeInput = (event) => {
@@ -44,7 +32,6 @@ class UploadPage extends Component {
     //Uses randomized image held from state for upload thumbnail to post as video image if the inputs are not empty
 
     if (!this.state.title || !this.state.description) {
-      console.log("This input should be filled");
       this.setState({
         validInput: false,
       });
@@ -56,7 +43,7 @@ class UploadPage extends Component {
         title: e.target.title.value,
         description: e.target.description.value,
         timestamp: VideoTimestamp(Date.now()),
-        image: this.state.image,
+        image: uploadImage,
       })
       .then(() => {
         const {
@@ -77,14 +64,11 @@ class UploadPage extends Component {
             <div className="upload__details">
               <div className="upload__thumbnail">
                 <span className="upload__thumbnail-label">Video Thumbnail</span>
-                {!this.state.image && <span>Loading...</span>}
-                {this.state.image && (
-                  <img
-                    src={this.state.image}
-                    alt="upload thumbnail"
-                    className="upload__photo"
-                  />
-                )}
+                <img
+                  src={uploadImage}
+                  alt="upload thumbnail"
+                  className="upload__photo"
+                />
               </div>
               <div className="upload__inputs">
                 <label htmlFor="title" className="form__label">
